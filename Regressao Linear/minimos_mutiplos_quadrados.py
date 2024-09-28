@@ -1,8 +1,13 @@
 from operacoes_matriciais import *
 
 
-def minimos_mutiplos_quadrados(xt, y):
+def minimos_mutiplos_quadrados(xt:list[list[float]], y:list[float]) -> list[float]:
+    '''Retorna os coeficientes da regressão linear pelo método dos mínimos múltiplos quadrados'''
     n = len(y)
+
+    for linha in xt:
+        if len(linha) != n: raise ValueError('Tamanhos da matriz de entrada inválida')
+
     xt = [[1 for _ in range(n)]] + xt
     x = m_transpor(xt)
     y = m_transpor([y])

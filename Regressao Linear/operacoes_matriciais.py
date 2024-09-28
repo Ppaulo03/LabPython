@@ -1,8 +1,10 @@
-def m_print(matriz:list[list]):
+def m_print(matriz:list[list[float]]) -> None:
+    '''Imprime a matriz'''
     for linha in matriz: print(linha)
 
 
-def m_transpor(matriz:list[list]):
+def m_transpor(matriz:list[list[float]]) -> list[list[float]]:
+    '''Retorna a matriz transposta'''
     transposta = [[] for _ in range(len(matriz[0]))]
     for linha in matriz:
         for idx, item in enumerate(linha):
@@ -11,7 +13,8 @@ def m_transpor(matriz:list[list]):
     return transposta
 
 
-def m_multiplicar(matriz_a:list[list], matriz_b:list[list]):
+def m_multiplicar(matriz_a:list[list[float]], matriz_b:list[list[float]]) -> list[list[float]]:
+    '''Retorna a multiplicação de duas matrizes'''
     if len(matriz_a[0]) != len(matriz_b): raise ValueError('Matrizes incompatíveis para multiplicação')
 
     matriz_c = []
@@ -28,7 +31,8 @@ def m_multiplicar(matriz_a:list[list], matriz_b:list[list]):
     return matriz_c
 
 
-def m_inverter(matriz):
+def m_inverter(matriz:list[list[float]]) -> list[list[float]]:
+    '''Retorna a matriz inversa'''
     n = len(matriz)
     if n != len(matriz[0]): raise ValueError('Matriz não quadrada')
 
